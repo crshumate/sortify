@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+<link href="style.css" type="text/css" rel="stylesheet" />    
+<link href="sortify.css" type="text/css" rel="stylesheet" />
+ <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+ <script type="text/javascript" src="jQuery.sortify.js"></script>
+<script type="text/javascript" src="js.js"></script>
+</head>
+
+<body>
+
+
+<div id="page">
+
+    <div id="colLeft">
+        <div id="category-refinement">
+            <h2>Category</h2>
+            <ul>
+                <li data-title="avatar"><a href="#">Avatar</a></li>
+                <li data-title="despicable-me"><a href="#">Despicable You</a></li>
+                <li data-title="duck-dynasty"><a href="#">Duck Dynasty</a></li>
+                <li data-title="hobbit"><a href="#">The Hobbit</a></li>
+                <li data-title="Oz"><a href="#">Oz</a></li>
+                <li data-title="star"><a href="#">Star</a></li>
+                <li data-title="The"><a href="#">The</a></li>
+                <li><a class="all" href="#">All</a></li>
+            </ul>
+        </div>
+
+        <div id="numeric-refinement">
+            <h2>Price</h2>
+            <ul>
+                <li><a href="#">$10.99 - $12.99</a></li>
+                <li><a href="#">$12.99 - $15.99</a></li>
+                <li><a href="#">$15.99 - $25.99</a></li>
+                <li><a class="all" href="#">All</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <div id="colRight">
+
+        <div class="sortify-paginate">
+            
+
+            <div class="sortify-sort">
+                <label class='sortify-sort-label'>Sort by: </label><select class="sortify-select">
+                <option value='alpha' class='forward'>Brand, A - Z</option>
+                <option value='alpha' class='reverse'>Brand, Z - A</option>
+                <option value='numeric' class='forward'>Price, Low to High</option>
+                <option value='numeric' class='reverse'>Price, High to Low</option>
+            </select>
+            </div>
+            <div class="sortify-pagination first"><div class="pagination"></div></div>
+
+        </div>
+
+        <div class="products">
+
+            <ul class='productList'>
+              <li>
+                  <img src="images/avatar.jpg" />
+                  <h2 class='title'><a href="#">Avatar the Movie</a></h2>
+                  <p class="price">$13.99</p>
+
+              </li>
+
+
+                <li>
+                    <img src="images/despicable.jpg" />
+                    <h2 class='title'><a href="#">The Despicable Me</a></h2>
+                    <p class="price">$12.00</p>
+
+                </li>
+
+                <li>
+                   <img src="images/duckdynasty.jpg" />
+                    <h2 class='title'><a href="#">The Duck Dynasty</a></h2>
+                    <p class="price">$11.50</p>
+
+                </li>
+
+
+                <li>
+                    <img src="images/hobbit.jpg" />
+                    <h2 class='title'><a href="#">The Hobbit</a></h2>
+                    <p class="price">$24.98</p>
+
+                </li>
+
+
+                <li>
+                    <img src="images/jackreacher.jpg" />
+                    <h2 class='title'><a href="#">Jack Reacher</a></h2>
+                    <p class="price">$27.49</p>
+
+                </li>
+
+
+                <li>
+                    <img src="images/lincoln.jpg" />
+                    <h2 class='title'><a href="#">Lincoln</a></h2>
+                    <p class="price">$27.49</p>
+
+                </li>
+
+
+
+                <li>
+                    <img src="images/oz.jpg" />
+                    <h2 class='title'><a href="#">OZ</a></h2>
+                    <p class="price">$23.76</p>
+
+                </li>
+
+
+                <li>
+                    <img src="images/sherlock.jpg" />
+                    <h2 class='title'><a href="#">Sherlock</a></h2>
+                    <p class="price">$15.99</p>
+
+                </li>
+
+
+                <li>
+                    <img src="images/skyfall.jpg" />
+                    <h2 class='title'><a href="#">Skyfall</a></h2>
+                    <p class="price">$19.36</p>
+
+                </li>
+
+
+
+                <li>
+                   <img src="images/startrek.jpg" />
+                    <h2 class='title'><a href="#">Star Trek</a></h2>
+                    <p class="price">$19.87</p>
+
+                </li>
+
+
+                <li>
+                   <img src="images/starwars.jpg" />
+                    <h2 class='title'><a href="#">Star Wars</a></h2>
+                    <p class="price">$19.87</p>
+
+                </li>
+
+
+
+            </ul>
+
+
+
+
+        </div>
+        <div class="sortify-paginate">
+
+            <div class="sortify-sort">
+                <label class='sortify-sort-label'>Sort by: </label><select class="sortify-select">
+                <option value='alpha' class='forward'>Brand, A - Z</option>
+                <option value='alpha' class='reverse'>Brand, Z - A</option>
+                <option value='numeric' class='forward'>Price, Low to High</option>
+                <option value='numeric' class='reverse'>Price, High to Low</option>
+            </select>
+            </div>
+        <div class="sortify-pagination clone"><div class="pagination"></div></div>
+
+
+
+
+   </div>
+
+
+</div>
+
+
+
+
+</body>
+</html>

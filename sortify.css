@@ -1,0 +1,16 @@
+.showPage,.showSet{display:block;}
+.hidePage, .hideSet,.title-list.hide{display:none;}
+
+.associate-pagination li.selected a{color:#000}
+
+.paginator li a{
+	text-decoration:none;
+}
+.paginator li.selected a{
+	text-decoration: underline;
+}
+
+.paginationNext.disabled,.paginationPrevious.disabled{
+	display:none;
+
+}
