@@ -28,13 +28,14 @@
                 sortSelect:'.sortify-sort .sortify-select',
                 sortList:false,
                 fauxRange:false,
-                fauxRangeType:'class'
+                fauxRangeType:'class',
+                paginationNext: '.paginationNext',
+                paginationPrevious: '.paginationPrevious'
 
             },
         settings = $.extend({}, defaults, options);
 
         var allItems = $(settings.itemList).find(settings.items);
-        console.log(allItems);
 
 	    var itemObj=[];
 	    var titles=[];
@@ -103,7 +104,6 @@
 		        		 });
 
 		        	},
-				        	 /*==================Alpha Refine================*/
 		            
 
 		            getCategories: function(callback){
@@ -135,12 +135,11 @@
 		                }
 		            }
 
-		            /*=================End Alpha Refine===============*/
+	
 		        },
 
 		        numericRefine:{
 
-		        		/*===============begin Number Refine==============*/
 
 		        	init:function(){
 		        		 //onclick updateProductList
@@ -211,13 +210,9 @@
 		            }
 
 
-            /*===============end Number Refine===============*/
-
 		        },
 		        
 		        helper:{
-
-		        	 /*=============Helper Functions=========*/
 
 			            segregateItems: function(itemArray, titleArray){
 			            	console.log('segregateItems called');
@@ -291,8 +286,6 @@
 			                if(settings.paginate)sortify.paginate.init();
 
 			            }
-			            /*=================end Helper Functions==========*/
-
 
 		        },
 
@@ -302,7 +295,6 @@
 		                var sortBy=$(thisSelect).val();
 		                var sortDirection=$(thisSelect).find(':selected').attr('class');
 
-		                /*-------working here....---------*/
 		                if(settings.sortList){
 		                    var titleList = $(settings.sortList).text();
 		                    //only sort the visible products on this paginated page...
@@ -475,10 +467,13 @@
 
 		            //nextPrev keeps track of where we are for the previous and next buttons. It shows/hides them at the appropriate times...
 		            nextPrev:function(){
-		                var position = $(".first .paginator li").index($(".first .paginator li.selected"));
+		            	var $paginator = $(settings.paginateWrapper).find('.paginator');
+		            	var $li  = $paginator.find('li');
+		            	var $selected = $paginator.find('li.selected');
+		                var position = $li.index($selected);
 		                var posCheck = position+1;
-		                var next = $(".first .paginationNext");
-		                var previous =  $(".first .paginationPrevious");
+		                var next = $(settings.paginateWrapper).find(settings.paginationNext);
+		                var previous =  $(settings.paginateWrapper).find(settings.paginationPrevious);
 
 
 		                //Previous Link: if position is greater than 0, ie: we are not on the first page...
@@ -494,7 +489,7 @@
 
 		                //Next Link: compare the current link index position+1 and compare it to the length of total page links
 		                //if posCheck != to total page link length..
-		                if(posCheck != $(".first ul.paginator li").length){
+		                if(posCheck != $li.length){
 		                    //..and it has a class of disabled, remove it.
 		                    if(next.hasClass('disabled'))
 		                        next.removeClass('disabled');
@@ -580,8 +575,6 @@
 
 		            }
 		            
-
-		            /*======================end Pagination======================*/
 		        }              
 	              
             };
