@@ -38,7 +38,7 @@ paginationPrevious: //Previous pagination element
 </pre>
 
 
-The best documentation at this point is to simply open sortify.html in your text editor to see the default HTML that is set up. The compare it against the default plugin settings so you know how to correctly and change the classes etc.
+The best documentation at this point is to simply open sortify.html in your text editor to see the default HTML that is set up. Then compare it against the default plugin settings so you know how to correctly modify the classes.
 
 
 Note: This plugin is beneficial primarily for anyone not working in an eCommerce platform seeing as how all of this functionality is default out of the box for most eCommerce platforms.
