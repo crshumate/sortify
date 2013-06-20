@@ -397,17 +397,18 @@
 				    paginate: function(){
 		                /*--Create the paginator--*/
 		                //empty out the top paginator...bottom gets rebuilt later
-		                $('.first .pagination').html('');
+		                $pagination = $(settings.paginateWrapper).find('.pagination');
+		                $pagination.html('');
 		                //all the products on the page
 		                var items = $(settings.itemList).find(settings.items);
 		                //create top paginator....
-		                var paginator=$("<ul />").addClass('paginator');
+		                var $paginator=$("<ul />").addClass('paginator');
 
 		                //append/prepend paginator html to proper places...
 		                //paginator.prependTo(".sortify-pagination.first .pagination");
-		                $(settings.paginateWrapper).find('.pagination').prepend(paginator);
-		                $(".first .pagination").prepend("<a class='paginationPrevious' href='#'>< Previous</a>");
-		                $(".first .pagination").append("<a class='paginationNext' href='#'>Next ></a>");
+		                 $pagination.prepend($paginator);
+		                 $pagination.prepend("<a class='paginationPrevious' href='#'>< Previous</a>");
+		                 $pagination.append("<a class='paginationNext' href='#'>Next ></a>");
 
 
 		                /*--Create the pages--*/
@@ -421,7 +422,7 @@
 		                    //append page link into li...
 		                    pageLink = $("<li />").append(pageLink);
 		                    //append li into paginator...
-		                    $(paginator).append(pageLink);
+		                    $paginator.append(pageLink);
 		                    if(j==1){
 		                        var pageVisibility='showPage';
 		                        pageLink.addClass('selected');
@@ -432,7 +433,7 @@
 		                }
 
 		                //loop through every settings.visiblePageLinks
-		                var totalLi = paginator.find('li');
+		                var totalLi = $paginator.find('li');
 		                var setOfPages=0;
 		                for (i=0; i<totalLi.length; i+=settings.visiblePageLinks){
 		                    setOfPages++;
@@ -445,12 +446,13 @@
 		                sortify.paginate.nextPrev();
 
 		                //attach click event to properly show/hide pages
-		                $(".first .paginator li a").click(function(ev){
+		                $paginatorLinks = $paginator.find('li a');
+		                $paginatorLinks.click(function(ev){
 		                    ev.preventDefault();
 		                    //first update the paginator links' selected status
-		                    var thisIndex=$(".first .paginator li a").index(this);
-		                    $(".first .paginator li.selected").removeClass('selected');
-		                    $(".first .paginator li").eq(thisIndex).addClass('selected');
+		                    var thisIndex=$paginatorLinks.index(this);
+		                    $paginator.find('li.selected').removeClass('selected');
+		                    $paginator.find('li').eq(thisIndex).addClass('selected');
 
 		                    //now show/hide the corresponding pages...
 		                    var thisPage = $(this).data('thisPage');
@@ -472,59 +474,60 @@
 		            	var $selected = $paginator.find('li.selected');
 		                var position = $li.index($selected);
 		                var posCheck = position+1;
-		                var next = $(settings.paginateWrapper).find(settings.paginationNext);
-		                var previous =  $(settings.paginateWrapper).find(settings.paginationPrevious);
+		                var $next = $(settings.paginateWrapper).find(settings.paginationNext);
+		                var $previous =  $(settings.paginateWrapper).find(settings.paginationPrevious);
 
 
 		                //Previous Link: if position is greater than 0, ie: we are not on the first page...
 		                if(position > 0){
 		                    //if previous hasClass of disabled remove it...
-		                    if(previous.hasClass('disabled'))
-		                        previous.removeClass('disabled');
+		                    if($previous.hasClass('disabled'))
+		                        $previous.removeClass('disabled');
 		                }
 		                //if position is NOT greater than 0 than we are on the first page...
 		                else{
-		                    previous.addClass('disabled');
+		                    $previous.addClass('disabled');
 		                }
 
 		                //Next Link: compare the current link index position+1 and compare it to the length of total page links
 		                //if posCheck != to total page link length..
 		                if(posCheck != $li.length){
 		                    //..and it has a class of disabled, remove it.
-		                    if(next.hasClass('disabled'))
-		                        next.removeClass('disabled');
+		                    if($next.hasClass('disabled'))
+		                        $next.removeClass('disabled');
 		                    //if posCheck == to total page link length, addClass disabled
 		                } else{
-		                    next.addClass('disabled');
+		                    $next.addClass('disabled');
 		                }
 
 		                //the HTMl dump for the bottom paginator....
 		                var associatePagination = $(settings.paginateWrapper).find('.pagination').html();
-		                $(settings.paginateWrapperClone).find(".pagination").html(associatePagination)
+		                $(settings.paginateWrapperClone).find('.pagination').html(associatePagination)
 
 		            },
 
 		            attachEvents: function(){
+		            	var $paginateWrapper= $(settings.paginateWrapper);
 
-		            	$(".first .paginationPrevious").live('click',function(ev){
+		            	$(settings.paginationPrevious).live('click',function(ev){
 		                ev.preventDefault();
 		                if(!$(this).hasClass('disabled')){
-		                    var position = $(".first .paginator li").index($(".first .paginator li.selected"));
+		                    var position = $paginateWrapper.find(".paginator li").index($paginateWrapper.find(".paginator li.selected"));
 		                    var newPos = position-1;
-		                    var liSetPos = $(".first .paginator span.showSet li").index($("span.showSet li.selected"))
-		                    var spanSetPos = $(".first .paginator span").index($(".first .paginator span.showSet"));
+		                    var liSetPos = $paginateWrapper.find('.paginator span.showSet li').index($("span.showSet li.selected"));
+		                    var spanSetPos = $paginateWrapper.find('.paginator span').index($paginateWrapper.find(".paginator span.showSet"));
 		                    if((liSetPos ==0) && spanSetPos != 0){
 		                        var thisSpan = $(".first .paginator .showSet");
 		                        thisSpan.removeClass('showSet').addClass('hideSet');
 		                        thisSpan.prev($("span")).removeClass('hideSet').addClass('showSet')
 		                    }
-		                    $(".paginator li.selected").removeClass('selected');
-		                    $(".paginator li").eq(newPos).addClass('selected').find('a').click();
+		                    $paginateWrapper.find(".paginator li.selected").removeClass('selected');
+		                    $paginateWrapper.find(".paginator li").eq(newPos).addClass('selected').find('a').click();
 
 		                }
 		            });
 
-		            $(".first .paginationNext").live('click',function(ev){
+		            $(settings.paginationNext).live('click',function(ev){
 		                ev.preventDefault();
 		                if(!$(this).hasClass('disabled')){
 		                    var position = $(".first .paginator li").index($(".first .paginator li.selected"));
