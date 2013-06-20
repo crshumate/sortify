@@ -11,7 +11,7 @@ Sortify is really three plugins in one. It is a paginating, sorting and refining
 The plugin is called on your item container. Typically a &lt;ul&gt; but it need not be.
 
 Here are the options for the plugin:
-
+<pre>
 <code>
 items: 'li', //these are all the items in your item container
 alphaRefine: '#alpha-refine ul li a', //the specific element that represents your alpha refine text
@@ -35,6 +35,7 @@ fauxRangeType:'class', //May be either class or data - note if data must be data
 paginationNext: '.paginationNext', //Forward pagination element
 paginationPrevious: '.paginationPrevious' //Previous pagination element
 </code>
+</pre>
 
 
 
