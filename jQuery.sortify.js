@@ -553,7 +553,7 @@
 		            });
 
 
-					$cloneWrapper = $(paginateWrapperClone);
+					$cloneWrapper = $(settings.paginateWrapperClone);
 		            /*--clone events--*/
 		            //must use .live since the bottom pagination will be rebuilt with js...
 		            $cloneWrapper.find(settings.paginationPrevious).live('click',function(ev){
@@ -565,7 +565,7 @@
 
 		            $cloneWrapper.find(settings.paginationNext).live('click',function(ev){
 		                ev.preventDefault();
-		               paginateWrapper.find(settings.paginationNext).click();
+		               $paginateWrapper.find(settings.paginationNext).click();
 		                $(window).scrollTop($(document).height());
 
 		            });
