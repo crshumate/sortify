@@ -44,15 +44,7 @@ The best documentation at this point is to simply open sortify.html in your text
 Sort/Pagination HTML
 --------------------
 <pre>
- &gt;div class="sortify-sort"&lt;
-                &lt;label class='sortify-sort-label'&gt;Sort by: &lt;/label&gt;&lt;select class="sortify-select"&gt;
-                &lt;option value='alpha' class='forward'&gt;Brand, A - Z</option&gt;
-                &lt;option value='alpha' class='reverse'&gt;Brand, Z - A</option&gt;
-                &lt;option value='numeric' class='forward'&gt;Price, Low to High&lt;/option&gt;
-                &lt;option value='numeric' class='reverse'&gt;Price, High to Low&lt;/option&gt;
-            &lt;/select&gt;
-            &lt;/div&gt;
-        &lt;div class="sortify-pagination clone"&gt;&lt;div class="pagination"&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;sortify-sort&quot;&gt;<br/>                &lt;label class='sortify-sort-label'&gt;Sort by: &lt;/label&gt;&lt;select class=&quot;sortify-select&quot;&gt;<br/>                &lt;option value='alpha' class='forward'&gt;Brand, A - Z&lt;/option&gt;<br/>                &lt;option value='alpha' class='reverse'&gt;Brand, Z - A&lt;/option&gt;<br/>                &lt;option value='numeric' class='forward'&gt;Price, Low to High&lt;/option&gt;<br/>                &lt;option value='numeric' class='reverse'&gt;Price, High to Low&lt;/option&gt;<br/>            &lt;/select&gt;<br/>            &lt;/div&gt;<br/>        &lt;div class=&quot;sortify-pagination clone&quot;&gt;&lt;div class=&quot;pagination&quot;&gt;&lt;/div&gt;&lt;/div&gt;
 </pre>
 
 Item List Example
