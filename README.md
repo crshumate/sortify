@@ -9,6 +9,9 @@ This plugin is ready for alpha stage. While there is a lot of refactoring to do 
 Sortify is really three plugins in one. It is a paginating, sorting and refining plugin and it is compatible with jQuery 1.3.2+
 
 The plugin is called on your item container. Typically a &lt;ul&gt; but it need not be.
+If all the items you wanted sorted were in a &lt;ul&gt; with a class of "item-list":
+
+$('ul.item-list').sortify();
 
 Here are the options for the plugin:
 <pre>
