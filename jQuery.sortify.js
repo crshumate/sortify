@@ -11,10 +11,10 @@
         
         var defaults = {
                 itemList: this,
-                items: "li",
-                alphaRefine: "#alpha-refine ul li a",
-                itemTitle: "h2.title a",
-                method : "alpha",
+                items: 'li',
+                alphaRefine: '#alpha-refine ul li a',
+                itemTitle: 'h2.title a',
+                method : 'alpha',
                 numericRefine: '#numeric-refinement ul li a',
                 itemNumber:'p.price',
                 paginate: true,
