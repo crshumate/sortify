@@ -534,44 +534,46 @@
 		                    var newPos = position+1;
 
 
-		                    $(".paginator li.selected").removeClass('selected');
-		                    $(".paginator li").eq(newPos).addClass('selected');
+		                    $paginateWrapper.find(".paginator li.selected").removeClass('selected');
+		                    $paginateWrapper.find(".paginator li").eq(newPos).addClass('selected');
 
 		                    /*--show/hide proper pagination spans--*/
 		                    var selectedLi = $(".first .paginator li.selected");
 		                    var thisSpan = selectedLi.parent();
 
 		                    if(!thisSpan.hasClass('showSet')){
-		                        $(".paginator span.showSet").removeClass('showSet').addClass('hideSet');
+		                        $paginateWrapper.find(".paginator span.showSet").removeClass('showSet').addClass('hideSet');
 		                        thisSpan.removeClass('hideSet').addClass('showSet');
 
 		                    }
 		                    //click this the very last so the html above is finished changing. Once this is clicked the
 		                    //cloned paginator will be rebuilt and we need to make sure that the html above is done changing...
-		                    $(".paginator li.selected").find('a').click();
+		                    $paginateWrapper.find(".paginator li.selected").find('a').click();
 		                }
 		            });
 
+
+					$cloneWrapper = $(paginateWrapperClone);
 		            /*--clone events--*/
 		            //must use .live since the bottom pagination will be rebuilt with js...
-		            $(".clone .paginationPrevious").live('click',function(ev){
+		            $cloneWrapper.find(settings.paginationPrevious).live('click',function(ev){
 		                ev.preventDefault();
-		                $(".first .paginationPrevious").click();
+		                $paginateWrapper.find(settings.paginationPrevious).click();
 		                //maintains page position despite content changes...
 		                $(window).scrollTop($(document).height());
 		            });
 
-		            $(".clone .paginationNext").live('click',function(ev){
+		            $cloneWrapper.find(settings.paginationNext).live('click',function(ev){
 		                ev.preventDefault();
-		                $(".first .paginationNext").click();
+		               paginateWrapper.find(settings.paginationNext).click();
 		                $(window).scrollTop($(document).height());
 
 		            });
 
-		            $(".clone .paginator li a").live('click',function(ev){
+		            $cloneWrapper.find(".paginator li a").live('click',function(ev){
 		                ev.preventDefault();
-		                var thisIndex=$(".clone .paginator li a").index(this);
-		                $(".first .paginator li a").eq(thisIndex).click();
+		                var thisIndex=$cloneWrapper.find(".paginator li a").index(this);
+		                $cloneWrapper.find(".paginator li a").eq(thisIndex).click();
 		                $(window).scrollTop($(document).height());
 
 		            });
