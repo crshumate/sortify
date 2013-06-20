@@ -12,7 +12,7 @@ The plugin is called on your item container. Typically a &lt;ul&gt; but it need 
 
 Here are the options for the plugin:
 <pre>
-<code>
+
 items: 'li', //these are all the items in your item container
 alphaRefine: '#alpha-refine ul li a', //the specific element that represents your alpha refine text
 itemTitle: 'h2.title a',  //The item name that is used to compare against the alphaRefine text
@@ -34,7 +34,7 @@ fauxRange:false, //Use HTML attributes rather than text for numeric refining, sa
 fauxRangeType:'class', //May be either class or data - note if data must be data-filter
 paginationNext: '.paginationNext', //Forward pagination element
 paginationPrevious: '.paginationPrevious' //Previous pagination element
-</code>
+
 </pre>
 
 
